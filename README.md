@@ -121,8 +121,19 @@ Additional deployment preparation:
 - Domain routing: `api.slokun.eu -> backend`, `business.slokun.eu -> frontend`
 - Firewall: open ports 22, 80, and 443
 
+## Project overview
+
+This repository is the infrastructure layer for the Slökun platform. The software is intentionally split across three GitHub repositories so that backend, frontend and infrastructure remain independent but coordinated.
+
+- Backend repo: `schuchanek/slokun-backend`
+- Frontend repo: `schuchanek/slokun-frontend`
+- DevOps repo: `schuchanek/slokun-devops`
+
+See `docs/project-overview.md` for the full handoff and execution guide.
+
 ## Notes
 
 - `docker compose up` is the primary local validation command for MVP.
 - The backend and frontend repositories are expected to live alongside this one in sibling directories at `../slokun-backend` and `../slokun-frontend`.
 - The production deployment stage is intentionally deferred until the application itself is ready to run on Hetzner.
+- GitHub notifications are limited to the active branches to avoid repeated failure email spam.

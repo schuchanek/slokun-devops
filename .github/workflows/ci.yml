@@ -3,7 +3,8 @@ name: infrastructure-ci
 on:
   push:
     branches:
-      - '**'
+      - main
+      - schuchanek-infrastructure-setup
   pull_request:
     branches:
       - main
