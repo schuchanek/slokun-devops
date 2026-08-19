@@ -1,0 +1,30 @@
+name: infrastructure-ci
+
+on:
+  push:
+    branches:
+      - main
+      - schuchanek-infrastructure-setup
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate-compose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate docker compose
+        run: docker compose -f docker-compose.yml config
+
+      - name: Validate provisioning script syntax
+        run: |
+          bash -n scripts/provision-hetzner.sh
+
+      - name: Validate env sample exists
+        run: |
+          test -f .env.example
+          test -f README.md

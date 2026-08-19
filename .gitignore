@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+backups/
+*.log
+.DS_Store
+/docker/nginx/certs/*
+**/.venv/
+**/node_modules/
+**/build/
+**/.dart_tool/
